@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two signals, one covariance</title>
+<style>
+*{box-sizing:border-box}body{background:#f4f7fa;color:#182840;font:1rem/1.5 system-ui,sans-serif;margin:0;padding:1.1rem}main{margin:auto;max-width:38rem}h1{font-size:clamp(1.7rem,6vw,2.6rem);line-height:1.12;margin:0}p{margin:.75rem 0}.grid{width:min(100%,17rem);display:grid;grid-template-columns:repeat(10,1fr);gap:2px;margin:.6rem auto}.cell{aspect-ratio:1;background:#e6eef6;display:grid;place-items:center;font-weight:700;font-size:clamp(.78rem,4vw,1rem)}.plus,.ok{background:#cbece4}.minus{background:#f7ddb7}.bad{background:#ffdedb}figure{margin:1rem 0;text-align:center}label{display:block;font-weight:700}input{width:100%;margin:.6rem 0}input:focus-visible{outline:3px solid #006698;outline-offset:3px}.branches{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.55rem}.branch{padding:.8rem;border-radius:.65rem}.branch b{display:block}.summary{margin:.7rem 0;min-height:3em;font-weight:700}
+</style>
+<main>
+<h1>Two signals, one covariance</h1>
+<p>Compare two verified rank-six Gram matrices A and B with ten observed variables. Their difference B − A is diagonal. The same covariance is obtained by assigning the corresponding change to the noise instead.</p>
+<figure>
+<div class="grid" id="difference" role="img" aria-label="A 10 by 10 diagonal matrix. The first six diagonal entries are one and the last four are minus one. All off-diagonal entries are zero."></div>
+<figcaption>B − A has six +1 entries and four −1 entries.</figcaption>
+</figure>
+<label for="noise">Noise level s in Σ = A + sI is <output id="level">2</output></label>
+<input type="range" id="noise" min="0" max="12" step="1" value="8" aria-label="Noise level in quarter units">
+<div class="branches">
+<div class="branch" id="branchA"><b>Signal A</b><span id="a"></span></div>
+<div class="branch" id="branchB"><b>Signal B</b><span id="b"></span></div>
+</div>
+<p class="summary" id="status" aria-live="polite"></p>
+<p>The control tests these two chosen completions. The paper’s separate small-noise argument establishes an open set with global uniqueness.</p>
+</main>
+<script>
+'use strict';
+const byId = id => document.getElementById(id);
+for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 10; j++) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    if (i === j) {
+      cell.className += i < 6 ? ' plus' : ' minus';
+      cell.textContent = i < 6 ? '+' : '−';
+    }
+    byId('difference').appendChild(cell);
+  }
+}
+function refresh() {
+  const s = Number(byId('noise').value) / 4;
+  byId('level').textContent = String(s);
+  byId('a').textContent = 'All ten variances: ' + s;
+  byId('b').textContent = 'First six: ' + (s - 1) + ' · Last four: ' + (s + 1);
+  byId('branchA').className = s > 0 ? 'branch ok' : 'branch bad';
+  byId('branchB').className = s > 1 ? 'branch ok' : 'branch bad';
+  byId('noise').setAttribute('aria-valuetext', String(s));
+  byId('status').textContent = s > 1
+    ? 'Both chosen completions have strictly positive variances.'
+    : s > 0
+      ? 'Only A passes strict positivity among this pair.'
+      : 'Neither chosen completion has strictly positive variances at zero noise.';
+}
+byId('noise').addEventListener('input', refresh);
+refresh();
+</script>
+</html>

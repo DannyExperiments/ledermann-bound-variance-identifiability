@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "Cite this version of the research release."
+title: "Variance identifiability at the Ledermann bound"
+authors:
+  - name: "DannyExperiments"
+type: software
+version: "1.0.0"
+date-released: 2026-11-27
+repository-code: "https://github.com/DannyExperiments/ledermann-bound-variance-identifiability"
+keywords:
+  - "factor analysis"
+  - "Ledermann bound"
+  - "global identifiability"
+  - "variance identification"
+  - "positive semidefinite completion"
+  - "diagonal matrix completion"
+  - "triangular factor loadings"
+doi: "10.5281/zenodo.24570450"
+url: "https://doi.org/10.5281/zenodo.24570450"
+preferred-citation:
+  type: software
+  title: "Variance identifiability at the Ledermann bound"
+  authors:
+    - name: "DannyExperiments"
+  version: "1.0.0"
+  date-released: 2026-11-27
+  doi: "10.5281/zenodo.24570450"
+  url: "https://doi.org/10.5281/zenodo.24570450"
+  repository-code: "https://github.com/DannyExperiments/ledermann-bound-variance-identifiability"

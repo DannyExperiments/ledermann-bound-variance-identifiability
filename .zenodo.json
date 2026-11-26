@@ -1,0 +1,31 @@
+{
+  "title": "Variance identifiability at the Ledermann bound",
+  "upload_type": "software",
+  "publication_date": "2026-11-27",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "DannyExperiments"
+    }
+  ],
+  "keywords": [
+    "factor analysis",
+    "Ledermann bound",
+    "global identifiability",
+    "variance identification",
+    "positive semidefinite completion",
+    "diagonal matrix completion",
+    "triangular factor loadings"
+  ],
+  "description": "<p>The unrestricted real factor model writes the covariance as a positive semidefinite Gram matrix plus a diagonal of strictly positive residual variances. This note answers the remaining Ledermann equality cases in Sturma, Kranzlmueller, Portakal and Drton’s generic identification question. For every nullity m ≥ 4, with p = m(m + 1)/2 observed variables and r = p − m factors, there is a nonempty open set where at least two different positive variance diagonals yield the same covariance and another nonempty open set where the variances are unique. Thus generic global identification fails. The same holds for full triangular loading matrices up to column signs.</p><p>The proof builds two regular Gram matrices with identical off-diagonal entries by taking kernels that are orthogonal for a signed diagonal form. Their local inverses overlap, and a strictly positive residual diagonal can be chosen for both. A kernel-projector estimate forces every admissible competitor sufficiently near a zero-noise covariance into one injective neighborhood, giving the contrasting uniqueness region with positive variances. The estimate depends on a separately chosen local radius. The proof does not count all admissible completions or compute the generic complex degree.</p><p>The deposit includes the PDF, LaTeX source, BibTeX references, citation metadata, a reproducibility archive and checksums. The exact standard-library replay verifies rational pairs of regular completions at (p,r) = (10,6) and (15,10). The offline explorer animates a worked ten-variable covariance slice. Internally reviewed. External peer review is pending.</p><p>ChatGPT Astra 6.2 (OpenAI) generated the recovered proof, quantitative small-noise supplement and original witness construction under human direction. OpenAI Codex independently reviewed the mathematics. GPT-6.2 Sol (OpenAI) checked primary sources and prepared the manuscript, standard-library replay and worked illustration. DannyExperiments is the project citation identity.</p>",
+  "access_right": "open",
+  "license": "other-closed",
+  "notes": "All rights reserved. Publicly downloadable files are supplied without a repository-wide reuse license.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DannyExperiments/ledermann-bound-variance-identifiability/releases/tag/v1.0.0",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}

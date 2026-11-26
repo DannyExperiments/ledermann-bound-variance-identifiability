@@ -1,0 +1,4 @@
+p=10, r=6: two regular PSD completions, exact covariance match, and eta > 0.
+p=15, r=10: two regular PSD completions, exact covariance match, and eta > 0.
+Exact worked slice: both witnesses admissible at s=2, only witness A at s=1/2.
+This slice check concerns the chosen pair; the proof establishes open global uniqueness.

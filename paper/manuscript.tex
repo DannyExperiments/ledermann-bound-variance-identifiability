@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{amsart}
+\usepackage[margin=.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Variance identifiability at the Ledermann bound}}
+\urlstyle{same}
+\setlength{\emergencystretch}{2em}
+\DeclareMathSizes{8}{8}{8}{8}
+\DeclareMathSizes{9}{9}{8}{8}
+\DeclareMathSizes{10.95}{10.95}{8}{8}
+\renewcommand{\bibliofont}{\normalsize}
+\newtheorem{theorem}{Theorem}
+\newcommand{\R}{\mathbb R}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Diag}{\operatorname{Diag}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\title[Variance identifiability at the Ledermann bound]{Variance identifiability at the Ledermann bound}
+\date{}
+\begin{document}
+\begin{abstract}
+Let $p$ be the number of observed variables and $r$ the number of real factors. For every remaining Ledermann equality pair, $p=m(m+1)/2$, $r=p-m$, $m\ge4$, there is an open set of factor parameters with more than one admissible positive variance diagonal and another open set with a unique diagonal. Thus the full model fails generic global variance identifiability in every remaining case. The same conclusion holds for triangular loading matrices modulo column signs. We construct two regular completions with the same off-diagonals. A quantitative bound near a zero-noise covariance yields a second region of global uniqueness with strictly positive variances.
+\end{abstract}
+\maketitle
+
+\section{The question}
+
+For an unrestricted real loading matrix $\Lambda\in\R^{p\times r}$, the factor model is
+\[
+ \Sigma=\Lambda\Lambda^{\mathrm T}+\Diag(\omega),
+ \qquad \omega\in\R_{>0}^{p}.
+\]
+An admissible decomposition of $\Sigma$ is a positive semidefinite Gram matrix of rank at most $r$ together with a strictly positive residual diagonal. Generic global variance identification means that the residual diagonal is unique for almost every parameter choice. Below the Ledermann bound this holds by Bekker and ten Berge \cite{bekker}. At equality Sturma, Kranzlmueller, Portakal and Drton \cite[Theorem 3.7 and Example 3.8]{sturma} record the remaining question. The pairs $(p,r)=(3,1)$ and $(6,3)$ are outside the question here. Wilson and Worcester \cite{wilson} study the six-variable case, and \cite{bekker} gives its second candidate in closed form.
+
+Write $m=p-r$. The equality
+$ p(r+1)-r(r-1)/2=p(p+1)/2$
+is equivalent to $p=m(m+1)/2$. We address every $m\ge4$, beginning with $(p,r)=(10,6)$.
+
+\begin{theorem}
+For each of these pairs the real factor model has a nonempty open region of ambiguity and a nonempty open region of uniqueness for strictly positive variance diagonals. The same holds for full triangular loading matrices up to column signs.
+\end{theorem}
+
+\section{Regular off-diagonal projection}
+
+Let $\mathcal{M}_r$ be the manifold of real positive semidefinite matrices of size $p$ and rank $r$. Denote by $F$ its projection onto the $p(p-1)/2$ strictly upper-triangular entries. For $A\in\mathcal{M}_r$, let $K\in\R^{p\times m}$ have columns spanning $\ker A$. The tangent space at $A$ consists of symmetric $H$ with $K^{\mathrm T}HK=0$. In coordinates splitting off the kernel, a local chart is
+\[
+ \begin{pmatrix}P&Q\\Q^{\mathrm T}&Q^{\mathrm T}P^{-1}Q\end{pmatrix},
+\]
+with $P$ positive definite and $Q=0$ at $A$. The derivative of the lower diagonal block vanishes there. The dimension is $p(p+1)/2-m(m+1)/2$, which at equality equals $p(p-1)/2$. Since any kernel vector of $dF_A$ is diagonal, $F$ is regular at $A$ exactly when the linear map
+\[
+             h\longmapsto K^{\mathrm T}\Diag(h)K
+             \quad(\R^p\longrightarrow\Sym_m)
+\]
+is an isomorphism. This is a tangent-space test for local uniqueness, as in the general matrix completion setting \cite[Theorem III.2]{shapirocompletion}.
+
+Call an $m$-plane good if this map is an isomorphism and the last $m$ rows of $K$ form a nonsingular block. Both conditions survive an invertible change of frame. The determinants for the two conditions are polynomials in the entries of $K$. To see that both are nonzero polynomials, take the rows $e_i+e_j$ for $i<j$ followed by the $m$ coordinate rows. The last block is the identity. The outer products of these rows span $\Sym_m$, since subtracting the two coordinate outer products from $(e_i+e_j)(e_i+e_j)^{\mathrm T}$ gives the symmetric off-diagonal basis direction. Therefore good planes form an open dense set. This follows from polynomial nonvanishing on the open set of full-rank frames and the local frame charts for the Grassmannian.
+
+\section{Two regular completions}
+
+As $p\ge2m$, choose an invertible diagonal matrix $D$ with entries $\pm1$ and at least $m$ entries of each sign. Consider pairs $(V,W)$ of $m$-planes that are orthogonal for the symmetric form $D$, with $D$ positive on $V$ and negative on $W$. Such pairs exist by taking coordinate subspaces. Each projection from this pair space to its positive- or negative-plane space is open. For example, given $V'$ close to $V$, project $W$ onto the $D$-orthogonal complement of $V'$. If $K'$ is a frame for $V'$, that projection is
+\[
+ I-K'(K'^{\mathrm T}DK')^{-1}K'^{\mathrm T}D.
+\]
+It depends continuously on $V'$ in a local frame chart and acts identically on $W$ at $V'=V$. The resulting $m$-plane stays nearby and negative. Interchanging the roles gives the other openness assertion. It follows that the inverse images of the good planes under the two projections are open dense in the nonempty pair space. Choose $(V,W)$ in both.
+
+Let $U$ be the $D$-orthogonal complement of $V\oplus W$, and use the resulting direct sum $V\oplus W\oplus U$. Define $A$ as the block form $0\oplus(-D|_W)\oplus tI_U$, with $I_U$ any Euclidean inner product on $U$. Then $B=A+D$ has block form
+\[
+ D|_V\oplus0\oplus(tI_U+D|_U).
+\]
+For sufficiently large $t$, both are positive semidefinite and have rank $r$, with kernels $V$ and $W$. Their off-diagonals agree since $D$ is diagonal. They are distinct and regular for $F$.
+
+Take disjoint neighborhoods of $A$ and $B$ on which $F$ has smooth local inverses. Their images have a common open neighborhood of the shared off-diagonal vector. Choose the observed diagonal strictly above both Gram diagonals. Continuity gives a product neighborhood of off-diagonal and diagonal data with two distinct admissible completions. Its preimage in the full loading and variance parameter space is nonempty and open. Rank-$r$ Gram matrices admit real full-column-rank factors, so this preimage is nonempty already on full-rank loadings.
+
+\section{A unique region near zero noise}
+
+At the covariance $A$ from the previous section, any PSD completion with the same off-diagonals and no larger diagonal must coincide with $A$. In fact, write such a completion as $A-\Diag(\omega)$ with $\omega_i\ge0$. Testing on $\ker A$ gives $\sum_i\omega_i v_i^2=0$ for every $v$ in the kernel. Regularity implies that every coordinate appears nontrivially in the kernel, since a zero row of $K$ would destroy the isomorphism. Thus all $\omega_i$ vanish.
+
+The same idea gives a quantitative bound near $A$. Let $P_0$ denote the orthogonal projector onto $\ker A$ and put $\eta=\min_i(P_0)_{ii}>0$. For any symmetric perturbation $\Delta$ and admissible $C=A+\Delta-\Diag(\omega)$, allow $\omega_i\ge0$ in the estimate. The unit kernel vector $u=P_0e_i/\sqrt{(P_0)_{ii}}$ has $u_i=\sqrt{(P_0)_{ii}}$. Since $C$ is PSD,
+\[
+ 0\le u^{\mathrm T} C u\le\|\Delta\|_2-\omega_i(P_0)_{ii},
+ \qquad
+ \|C-A\|_2\le (1+1/\eta)\|\Delta\|_2 .
+\]
+Here $\|\cdot\|_2$ is the operator norm. Choose $\rho>0$ such that $F$ is injective on the rank-$r$ PSD matrices in the $\rho$-ball around $A$. Shrink $\rho$ below the smallest positive eigenvalue of $A$. If
+\[
+                 \|\Sigma-A\|_2<\frac{\rho\eta}{1+\eta},
+\]
+every PSD completion of rank at most $r$ and nonnegative residual diagonal lies in that ball. It has rank at least $r$ by persistence of the positive eigenvalues, and hence rank exactly $r$. The injection then yields at most one completion. This bound is explicit in a separately chosen local radius $\rho$.
+
+There are actual model parameters in the strict inequality region. Keep Gram matrix $A$ and take a sufficiently small strictly positive residual diagonal. An open parameter neighborhood stays within the strict bound. At each point a completion exists, so the estimate gives uniqueness throughout that neighborhood.
+
+\section{Triangular normalization and scope}
+
+A rank-$r$ PSD matrix has positive definite leading $r\times r$ block exactly when its kernel meets the first coordinate $r$-plane trivially. This is the second good-plane condition at $A$ and $B$, and persists near both. The lower triangular factor of that leading block with positive diagonal is fixed by Cholesky factorization. The other loading rows are then fixed by the cross block, and the rank condition gives the remaining Gram block. Dropping positivity of the leading loading diagonal permits exactly independent column signs in this chart.
+
+Both regular local branches lie in this chart. If exact support is required, restrict each branch to the open dense set on which every allowed loading entry is nonzero. Density follows by using the freely varying triangular coordinates with positive pivots. The local off-diagonal diffeomorphisms carry these open dense sets to open dense subsets of the common target neighborhood. Their intersection retains ambiguity with exact support. The uniqueness region likewise meets the exact-support chart. Both behaviors occur on nonempty open sets and hence on sets of positive Lebesgue measure in the respective parameter spaces.
+
+The resulting global failure of generic identification is compatible with local identification at each regular completion \cite{shapiro}. The conclusion refers to real PSD completions with strictly positive residual diagonal. It determines neither the complex degree of the off-diagonal projection nor the number of admissible completions on the ambiguity region.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}
